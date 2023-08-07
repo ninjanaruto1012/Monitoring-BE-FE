@@ -16,15 +16,19 @@ import java.util.Map;
 @EnableKafka
 @Configuration
 public class KafkaConfig {
+
+    @Value("${spring.kafka.consumer.bootstrap-servers}")
+    public String kafkaUrl;
+
     @Bean
     public ConsumerFactory<String, String> consumerFactory() {
         Map<String, Object> props = new HashMap<>();
         props.put(
                 ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,
-                "localhost:9092");
+                kafkaUrl);
         props.put(
                 ConsumerConfig.GROUP_ID_CONFIG,
-                "my-test-topic");
+                "monitoring-actual-predicted-topic");
         props.put(
                 ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG,
                 StringDeserializer.class);

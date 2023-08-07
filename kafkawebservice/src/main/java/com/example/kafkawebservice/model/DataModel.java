@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-@Document(collection = "carsales")
+@Document(collection = "monitoring-actual-predict")
 public class DataModel {
 
 
@@ -16,45 +16,86 @@ public class DataModel {
 
     String epoch;
 
-    Integer percentageCpuRealVm1;
+    Integer actualCpu1;
 
-    Integer percentageCpuPredictedVm1;
+    Integer predictedCpu1;
 
-    Integer percentageCpuRealVm2;
+    Integer actualCpu2;
 
-    Integer percentageCpuPredictedVm2;
+    Integer predictedCpu2;
 
-    public Integer getPercentageCpuPredictedVm1() {
+    Integer actualCpu3;
 
-        return percentageCpuPredictedVm1;
+    Integer predictedCpu3;
+
+    Integer actualCpu4;
+
+    Integer predictedCpu4;
+
+
+    public Integer getActualCpu3() {
+        return actualCpu3;
     }
 
-    public void setPercentageCpuPredictedVm1(Integer percentageCpuPredictedVm1) {
-        this.percentageCpuPredictedVm1 = percentageCpuPredictedVm1;
+    public void setActualCpu3(Integer actualCpu3) {
+        this.actualCpu3 = actualCpu3;
     }
 
-    public Integer getPercentageCpuRealVm2() {
-        return percentageCpuRealVm2;
+    public Integer getPredictedCpu3() {
+        return predictedCpu3;
     }
 
-    public void setPercentageCpuRealVm2(Integer percentageCpuRealVm2) {
-        this.percentageCpuRealVm2 = percentageCpuRealVm2;
+    public void setPredictedCpu3(Integer predictedCpu3) {
+        this.predictedCpu3 = predictedCpu3;
     }
 
-    public Integer getPercentageCpuPredictedVm2() {
-        return percentageCpuPredictedVm2;
+    public Integer getActualCpu4() {
+        return actualCpu4;
     }
 
-    public void setPercentageCpuPredictedVm2(Integer percentageCpuPredictedVm2) {
-        this.percentageCpuPredictedVm2 = percentageCpuPredictedVm2;
+    public void setActualCpu4(Integer actualCpu4) {
+        this.actualCpu4 = actualCpu4;
     }
 
-    public Integer getPercentageCpuRealVm1() {
-        return percentageCpuRealVm1;
+    public Integer getPredictedCpu4() {
+        return predictedCpu4;
     }
 
-    public void setPercentageCpuRealVm1(Integer percentageCpuRealVm1) {
-        this.percentageCpuRealVm1 = percentageCpuRealVm1;
+    public void setPredictedCpu4(Integer predictedCpu4) {
+        this.predictedCpu4 = predictedCpu4;
+    }
+
+    public Integer getPredictedCpu1() {
+
+        return predictedCpu1;
+    }
+
+    public void setPredictedCpu1(Integer predictedCpu1) {
+        this.predictedCpu1 = predictedCpu1;
+    }
+
+    public Integer getActualCpu2() {
+        return actualCpu2;
+    }
+
+    public void setActualCpu2(Integer actualCpu2) {
+        this.actualCpu2 = actualCpu2;
+    }
+
+    public Integer getPredictedCpu2() {
+        return predictedCpu2;
+    }
+
+    public void setPredictedCpu2(Integer predictedCpu2) {
+        this.predictedCpu2 = predictedCpu2;
+    }
+
+    public Integer getActualCpu1() {
+        return actualCpu1;
+    }
+
+    public void setActualCpu1(Integer actualCpu1) {
+        this.actualCpu1 = actualCpu1;
     }
 
     public Date getTimestamp() {

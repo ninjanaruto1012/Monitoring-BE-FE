@@ -29,4 +29,7 @@ public class DataController {
 
     @GetMapping("/lastcarsales")
     public DataModel findLastCarSales() {return dataService.getLatestData(); }
+
+    @DeleteMapping("/carsales")
+    public String removeData() {return dataService.deleteData(); }
 }

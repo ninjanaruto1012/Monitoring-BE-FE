@@ -14,4 +14,4 @@ COPY ./src/main/resources/application_docker.properties /app
 EXPOSE 8080
 
 # Starting the application
-CMD ["java", "-jar", "kafkawebservice-0.0.1-SNAPSHOT.jar", "–DApp.config.file=local.properties"]
+CMD ["java", "-jar", "kafkawebservice-0.0.1-SNAPSHOT.jar", "--spring.config.location=application_docker.properties"]

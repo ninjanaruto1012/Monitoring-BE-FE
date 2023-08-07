@@ -12,7 +12,12 @@ public class DataService {
 
     public DataModel getLatestData() {
         DataModel object = demoMongoDBRepository.findTop1ByOrderByTimestampDesc();
-        System.out.println("Timestamp: " + object.getTimestamp() + " and Id: " + object.getId());
+//        System.out.println("Timestamp: " + object.getTimestamp() + " and Id: " + object.getId());
         return object;
+    }
+
+    public String deleteData() {
+        demoMongoDBRepository.deleteAll();
+        return "Delete complete!";
     }
 }
