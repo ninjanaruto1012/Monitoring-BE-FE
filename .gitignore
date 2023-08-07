@@ -150,15 +150,6 @@ ehthumbs_vista.db
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
-# Windows Installer files
-*.cab
-*.msi
-*.msix
-*.msm
-*.msp
-
-# Windows shortcuts
-*.lnk
 
 ### IntelliJ IDEA ###
 .idea
@@ -166,15 +157,6 @@ $RECYCLE.BIN/
 *.iml
 *.ipr
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
 ### VS Code ###
 .vscode/
@@ -199,6 +181,8 @@ README.html
 *.iml
 .idea
 .exercism
+
+### Angular 
 
 /dist/
 /bazel-out
