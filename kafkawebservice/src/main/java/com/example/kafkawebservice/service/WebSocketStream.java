@@ -33,7 +33,8 @@ public class WebSocketStream {
                 + jsonObject.getActualCpu3() + "\", \"CpuPredictedVm3\": \""
                 + jsonObject.getPredictedCpu3() + "\", \"CpuRealVm4\": \""
                 + jsonObject.getActualCpu4() + "\", \"CpuPredictedVm4\": \""
-                + jsonObject.getPredictedCpu4() + "\"}";
+                + jsonObject.getPredictedCpu4() + "\", \"Mse\": \""
+                + jsonObject.getMse() + "\"}";
         System.out.println("Message sent to Websocket is: " + myString);
         messagingTemplate.convertAndSend("/monitor/abc",myString);
     }

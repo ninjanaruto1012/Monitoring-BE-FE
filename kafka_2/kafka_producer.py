@@ -19,6 +19,7 @@ while(True):
     predicted_cpu3 = random.randint(1, 100);
     actual_cpu4 = random.randint(1, 100);
     predicted_cpu4 = random.randint(1, 100);
+    mse = random.random();
     my_date_time = datetime.datetime.now()
     epoch = my_date_time.timestamp()
 
@@ -28,9 +29,8 @@ while(True):
 
     my_data = f'{{"payload": "timetamp: {my_date_time}, actual_cpu1: {actual_cpu1}, predicted_cpu1: {predicted_cpu1}, ' \
         f'actual_cpu2: {actual_cpu2}, predicted_cpu2: {predicted_cpu2}, ' \
-        f'actual_cpu3: {actual_cpu3}, predicted_cpu3: {predicted_cpu3}, ' \
-        f'actual_cpu4: {actual_cpu4}, predicted_cpu4: {predicted_cpu4}"}}'
+        f'mse: {mse}"}}'
     source_data = json.loads(my_data)
-    producer.send(' ', source_data)
+    producer.send('monitoring-new-topic', source_data)
     print("Successfully sent message")
     x += 5

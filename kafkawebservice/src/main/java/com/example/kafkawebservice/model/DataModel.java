@@ -32,6 +32,15 @@ public class DataModel {
 
     Integer predictedCpu4;
 
+    Float mse;
+
+    public Float getMse() {
+        return mse;
+    }
+
+    public void setMse(Float mse) {
+        this.mse = mse;
+    }
 
     public Integer getActualCpu3() {
         return actualCpu3;

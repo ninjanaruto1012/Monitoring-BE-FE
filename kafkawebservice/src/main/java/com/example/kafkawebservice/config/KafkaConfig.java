@@ -20,6 +20,9 @@ public class KafkaConfig {
     @Value("${spring.kafka.consumer.bootstrap-servers}")
     public String kafkaUrl;
 
+    @Value("${spring.kafka.consumer.topics}")
+    public String kafkaTopic;
+
     @Bean
     public ConsumerFactory<String, String> consumerFactory() {
         Map<String, Object> props = new HashMap<>();
@@ -28,7 +31,7 @@ public class KafkaConfig {
                 kafkaUrl);
         props.put(
                 ConsumerConfig.GROUP_ID_CONFIG,
-                "monitoring-actual-predicted-topic");
+                kafkaTopic);
         props.put(
                 ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG,
                 StringDeserializer.class);
