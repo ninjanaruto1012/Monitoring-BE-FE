@@ -24,6 +24,7 @@ public class WebSocketStream {
     @Scheduled(fixedRate = 5000)
     public void streamCarSalesData() {
         DataModel jsonObject = dataService.getLatestData();
+//        String myString = "abc";
         String myString = "{\"Timestamp\": \"" + jsonObject.getTimestamp() + "\", \"Epoch\": \""
                 + jsonObject.getEpoch() + "\", \"CpuRealVm1\": \""
                 + jsonObject.getActualCpu1() + "\", \"CpuPredictedVm1\": \""
