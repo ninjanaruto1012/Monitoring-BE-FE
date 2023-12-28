@@ -15,35 +15,35 @@ public class MonitoringPredictionKafkaListener {
     @Autowired
     private DemoMongoDBRepository demoMongoDBRepository;
 
-    @KafkaListener(topics = "monitoring-actual-predicted-topic")
+    @KafkaListener(topics = "monitoring-out")
     public void readDataStream(String record) {
         TempDataModel object = null;
         try {
             object = new ObjectMapper().readValue(record, TempDataModel.class);
             String tmpPayload = object.getPayload();
-            String tmpTimestamp = tmpPayload.substring(tmpPayload.lastIndexOf("timetamp: ") + 10, tmpPayload.lastIndexOf(", actual_cpu1:"));
+            String tmpTimestamp = tmpPayload.substring(tmpPayload.lastIndexOf("timestamp: ") + 10, tmpPayload.lastIndexOf(", actual_cpu1:"));
             String tmpActualCpu1 = tmpPayload.substring(tmpPayload.lastIndexOf("actual_cpu1: ") + 13, tmpPayload.lastIndexOf(", predicted_cpu1:"));
             String tmpActualCpu2 = tmpPayload.substring(tmpPayload.lastIndexOf("actual_cpu2: ") + 13, tmpPayload.lastIndexOf(", predicted_cpu2:"));
-//            String tmpActualCpu3 = tmpPayload.substring(tmpPayload.lastIndexOf("actual_cpu3: ") + 13, tmpPayload.lastIndexOf(", predicted_cpu3:"));
-//            String tmpActualCpu4 = tmpPayload.substring(tmpPayload.lastIndexOf("actual_cpu4: ") + 13, tmpPayload.lastIndexOf(", predicted_cpu4:"));
+            String tmpActualCpu3 = tmpPayload.substring(tmpPayload.lastIndexOf("actual_cpu3: ") + 13, tmpPayload.lastIndexOf(", predicted_cpu3:"));
+            String tmpActualCpu4 = tmpPayload.substring(tmpPayload.lastIndexOf("actual_cpu4: ") + 13, tmpPayload.lastIndexOf(", predicted_cpu4:"));
             String tmpPredictedCpu1 = tmpPayload.substring(tmpPayload.lastIndexOf("predicted_cpu1: ") + 16, tmpPayload.lastIndexOf(", actual_cpu2:"));
-            String tmpPredictedCpu2 = tmpPayload.substring(tmpPayload.lastIndexOf("predicted_cpu2: ") + 16, tmpPayload.lastIndexOf(", mse:"));
-//            String tmpPredictedCpu3 = tmpPayload.substring(tmpPayload.lastIndexOf("predicted_cpu3: ") + 16, tmpPayload.lastIndexOf(", actual_cpu4:"));
-//            String tmpPredictedCpu4 = tmpPayload.substring(tmpPayload.lastIndexOf("predicted_cpu4: ") + 16, tmpPayload.lastIndexOf(", mse:"));
+            String tmpPredictedCpu2 = tmpPayload.substring(tmpPayload.lastIndexOf("predicted_cpu2: ") + 16, tmpPayload.lastIndexOf(", actual_cpu3:"));
+            String tmpPredictedCpu3 = tmpPayload.substring(tmpPayload.lastIndexOf("predicted_cpu3: ") + 16, tmpPayload.lastIndexOf(", actual_cpu4:"));
+            String tmpPredictedCpu4 = tmpPayload.substring(tmpPayload.lastIndexOf("predicted_cpu4: ") + 16, tmpPayload.lastIndexOf(", mse:"));
             String tmpMse = tmpPayload.substring(tmpPayload.lastIndexOf("mse: ") + 5);
 
 
 
 
-//            System.out.println("Current timestamp is: " + tmpTimestamp);
-//            System.out.println("Current actual cpu 1 is: " + tmpActualCpu1);
-//            System.out.println("Current actual cpu 2 is: " + tmpActualCpu2);
-//            System.out.println("Current actual cpu 3 is: " + tmpActualCpu3);
-//            System.out.println("Current actual cpu 4 is: " + tmpActualCpu4);
-//            System.out.println("Current predicted cpu 1 is: " + tmpPredictedCpu1);
-//            System.out.println("Current predicted cpu 2 is: " + tmpPredictedCpu2);
-//            System.out.println("Current predicted cpu 3 is: " + tmpPredictedCpu3);
-//            System.out.println("Current mse is: " + tmpMse);
+            System.out.println("Current timestamp is: " + tmpTimestamp);
+            System.out.println("Current actual cpu 1 is: " + tmpActualCpu1);
+            System.out.println("Current actual cpu 2 is: " + tmpActualCpu2);
+            System.out.println("Current actual cpu 3 is: " + tmpActualCpu3);
+            System.out.println("Current actual cpu 4 is: " + tmpActualCpu4);
+            System.out.println("Current predicted cpu 1 is: " + tmpPredictedCpu1);
+            System.out.println("Current predicted cpu 2 is: " + tmpPredictedCpu2);
+            System.out.println("Current predicted cpu 3 is: " + tmpPredictedCpu3);
+            System.out.println("Current mse is: " + tmpMse);
 
             DataModel another_object = new DataModel();
 //            another_object.setId(object.getId());
